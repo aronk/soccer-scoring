@@ -38,99 +38,108 @@
     font-family:inherit; touch-action:manipulation; cursor:pointer;
     border:none; border-radius:14px;
   }
-  .screen{display:none; min-height:100vh; padding:16px;}
+  .screen{display:none; min-height:100vh; padding:10px 14px 14px;}
   .screen.active{display:block;}
-  h1{font-size:22px; margin:4px 0 16px;}
-  h2{font-size:15px; margin:0 0 8px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em;}
+  h1{font-size:19px; margin:2px 0 8px;}
+  h2{font-size:12px; margin:0 0 6px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em;}
 
   /* ---------- Setup screen ---------- */
   .card{
-    background:var(--panel); border:1px solid var(--line); border-radius:16px;
-    padding:16px; margin-bottom:14px;
+    background:var(--panel); border:1px solid var(--line); border-radius:14px;
+    padding:11px 12px; margin-bottom:9px;
   }
   .team-name-input{
-    width:100%; font-size:20px; padding:12px 14px; border:2px solid var(--line);
-    border-radius:12px; margin-bottom:12px; background:#fff; color:var(--ink);
+    width:100%; font-size:16px; padding:8px 11px; border:2px solid var(--line);
+    border-radius:10px; margin-bottom:7px; background:#fff; color:var(--ink);
   }
-  .swatches{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:10px;}
+  .swatches{display:flex; flex-wrap:wrap; gap:7px;}
   .swatch{
-    width:42px; height:42px; border-radius:50%; border:3px solid var(--line);
+    width:32px; height:32px; border-radius:50%; border:3px solid var(--line);
+    padding:0; flex-shrink:0;
   }
   .swatch.selected{border-color:#111827; box-shadow:0 0 0 2px #fff inset;}
-  .custom-color-row{display:flex; align-items:center; gap:10px; margin-top:4px;}
-  .custom-color-row label{font-size:14px; color:var(--muted);}
-  .custom-color-row input[type=color]{width:44px; height:36px; border:none; padding:0; background:none;}
-  .field-row{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
-  .field-row input[type=number]{width:70px; font-size:18px; padding:8px; border:2px solid var(--line); border-radius:10px;}
+  .swatch-custom{
+    position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;
+    background:conic-gradient(red,#f2a900,lime,cyan,blue,magenta,red); cursor:pointer;
+  }
+  .swatch-custom input[type=color]{
+    position:absolute; inset:-6px; opacity:0; border:none; padding:0; margin:0; cursor:pointer;
+  }
+  .swatch-custom .brush{font-size:13px; pointer-events:none; filter:drop-shadow(0 0 1px rgba(0,0,0,.6));}
+  .halflen-row{display:flex; align-items:center; justify-content:space-between; margin:2px 2px 10px;}
+  .halflen-row label{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; font-weight:700;}
+  .halflen-row .halflen-input{display:flex; align-items:center; gap:6px;}
+  .halflen-row input[type=number]{width:56px; font-size:16px; padding:6px; border:2px solid var(--line); border-radius:8px; text-align:center;}
+  .halflen-row span{color:var(--muted); font-size:13px;}
   .primary-btn{
-    display:block; width:100%; padding:16px; font-size:19px; font-weight:700;
-    background:var(--accent); color:#fff; border-radius:14px; margin-top:6px;
+    display:block; width:100%; padding:13px; font-size:17px; font-weight:700;
+    background:var(--accent); color:#fff; border-radius:14px; margin-top:2px;
   }
   .secondary-btn{
-    display:block; width:100%; padding:12px; font-size:15px; font-weight:600;
-    background:#fff; color:var(--ink); border:2px solid var(--line); margin-top:8px;
+    display:block; width:100%; padding:10px; font-size:14px; font-weight:600;
+    background:#fff; color:var(--ink); border:2px solid var(--line); margin-top:6px;
   }
 
   /* ---------- Match screen ---------- */
-  .topbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;}
-  .half-label{font-size:14px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.05em;}
-  .topbar-actions{display:flex; gap:8px;}
+  .topbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;}
+  .half-label{font-size:13px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.05em;}
+  .topbar-actions{display:flex; gap:6px;}
   .icon-btn{
-    background:#fff; border:2px solid var(--line); font-size:13px; padding:8px 10px; font-weight:600;
+    background:#fff; border:2px solid var(--line); font-size:12px; padding:6px 9px; font-weight:600;
   }
 
   .timer-wrap{
-    background:var(--panel); border:1px solid var(--line); border-radius:20px;
-    padding:14px 10px 18px; text-align:center; margin-bottom:12px;
+    background:var(--panel); border:1px solid var(--line); border-radius:18px;
+    padding:10px 10px 12px; text-align:center; margin-bottom:8px;
   }
-  .timer{font-size:64px; font-weight:800; letter-spacing:.02em; font-variant-numeric:tabular-nums; line-height:1;}
+  .timer{font-size:54px; font-weight:800; letter-spacing:.02em; font-variant-numeric:tabular-nums; line-height:1;}
   .timer.warn{color:var(--danger);}
-  .timer-controls{display:flex; gap:10px; margin-top:12px;}
-  .timer-controls button{flex:1; padding:14px 8px; font-size:16px; font-weight:700; border:2px solid var(--line); background:#fff; color:var(--ink);}
+  .timer-controls{display:flex; gap:8px; margin-top:8px;}
+  .timer-controls button{flex:1; padding:11px 6px; font-size:14.5px; font-weight:700; border:2px solid var(--line); background:#fff; color:var(--ink);}
   .timer-controls button.go{background:var(--good); color:#fff; border-color:var(--good);}
   .timer-controls button.stop{background:#b7791f; color:#fff; border-color:#b7791f;}
 
   .wakelock-note{
-    font-size:13px; background:#fff7e6; border:1px solid #f2c96b; color:#7a5b00;
-    padding:8px 10px; border-radius:10px; margin-bottom:12px; display:none;
+    font-size:12.5px; background:#fff7e6; border:1px solid #f2c96b; color:#7a5b00;
+    padding:7px 9px; border-radius:10px; margin-bottom:8px; display:none; line-height:1.35;
   }
   .wakelock-note.show{display:block;}
   .wakelock-note button{background:none; border:none; float:right; font-weight:700; color:#7a5b00; padding:0 0 0 8px;}
 
   .mercy-pill{
     display:none; align-items:center; justify-content:space-between; gap:8px;
-    padding:10px 14px; border-radius:14px; font-weight:700; font-size:14px; margin-bottom:12px;
+    padding:8px 12px; border-radius:14px; font-weight:700; font-size:13px; margin-bottom:8px;
     color:#fff;
   }
   .mercy-pill.show{display:flex;}
-  .mercy-pill button{background:rgba(255,255,255,.25); color:#fff; padding:4px 10px; font-size:12px; font-weight:700;}
+  .mercy-pill button{background:rgba(255,255,255,.25); color:#fff; padding:4px 10px; font-size:11.5px; font-weight:700;}
 
-  .scores{display:flex; gap:10px; margin-bottom:14px;}
+  .scores{display:flex; gap:8px; margin-bottom:8px;}
   .team-panel{
-    flex:1; border-radius:18px; padding:14px 10px; text-align:center; color:#111;
+    flex:1; border-radius:16px; padding:9px 8px; text-align:center; color:#111;
     border:1px solid var(--line);
   }
-  .team-panel .tname{font-size:15px; font-weight:800; margin-bottom:4px; word-break:break-word;}
-  .team-panel .tscore{font-size:52px; font-weight:800; line-height:1; margin:6px 0;}
-  .team-panel .tbtns{display:flex; gap:8px; margin-top:8px;}
+  .team-panel .tname{font-size:13px; font-weight:800; margin-bottom:2px; word-break:break-word;}
+  .team-panel .tscore{font-size:40px; font-weight:800; line-height:1; margin:2px 0;}
+  .team-panel .tbtns{display:flex; gap:6px; margin-top:6px;}
   .team-panel .tbtns button{
-    flex:1; padding:14px 0; font-size:22px; font-weight:800; border:none; border-radius:12px;
+    flex:1; padding:11px 0; font-size:19px; font-weight:800; border:none; border-radius:10px;
     background:rgba(0,0,0,.14); color:inherit;
   }
 
-  .log-card{background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:0; margin-bottom:80px; overflow:hidden;}
-  .log-head{display:flex; justify-content:space-between; align-items:center; padding:12px 14px; font-weight:700; font-size:14px;}
+  .log-card{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:0; margin-bottom:76px; overflow:hidden;}
+  .log-head{display:flex; justify-content:space-between; align-items:center; padding:10px 12px; font-weight:700; font-size:13px;}
   .log-head span.count{color:var(--muted); font-weight:600;}
   .log-list{max-height:0; overflow:auto; transition:max-height .2s ease;}
-  .log-list.open{max-height:220px;}
-  .log-row{display:flex; justify-content:space-between; align-items:center; padding:9px 14px; border-top:1px solid var(--line); font-size:14px;}
-  .log-row .rm{background:none; border:none; color:var(--danger); font-weight:800; font-size:16px; padding:2px 8px;}
-  .log-empty{padding:14px; color:var(--muted); font-size:13px; text-align:center;}
+  .log-list.open{max-height:240px;}
+  .log-row{display:flex; justify-content:space-between; align-items:baseline; gap:8px; padding:7px 12px; border-top:1px solid var(--line); font-size:13px;}
+  .log-time{color:var(--muted); font-variant-numeric:tabular-nums; font-size:12px; flex-shrink:0;}
+  .log-empty{padding:12px; color:var(--muted); font-size:13px; text-align:center;}
 
   .lock-fab{
-    position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom));
-    width:60px; height:60px; border-radius:50%; background:var(--ink); color:#fff;
-    font-size:22px; display:flex; align-items:center; justify-content:center;
+    position:fixed; right:14px; bottom:calc(14px + env(safe-area-inset-bottom));
+    width:54px; height:54px; border-radius:50%; background:var(--ink); color:#fff;
+    font-size:20px; display:flex; align-items:center; justify-content:center;
     box-shadow:0 4px 12px rgba(0,0,0,.25); border:none;
   }
 
@@ -142,16 +151,24 @@
   .overlay.show{display:flex;}
 
   #alertOverlay{color:#fff;}
-  #alertOverlay .big{font-size:42px; font-weight:800; margin-bottom:10px;}
-  #alertOverlay .sub{font-size:20px; font-weight:600; opacity:.9;}
+  #alertOverlay .big{font-size:40px; font-weight:800; margin-bottom:10px;}
+  #alertOverlay.critical .big{animation:pulseScale 0.9s ease-in-out infinite;}
+  @media (prefers-reduced-motion: reduce){
+    #alertOverlay.critical .big{animation:none;}
+  }
+  @keyframes pulseScale{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.07);}
+  }
+  #alertOverlay .sub{font-size:19px; font-weight:600; opacity:.9;}
   #alertOverlay .tap{margin-top:26px; font-size:14px; opacity:.8;}
 
   #guardOverlay{background:rgba(15,23,42,.97); color:#fff;}
-  #guardOverlay .g-time{font-size:56px; font-weight:800; font-variant-numeric:tabular-nums;}
-  #guardOverlay .g-scores{display:flex; gap:22px; font-size:22px; font-weight:700; margin:14px 0 34px;}
+  #guardOverlay .g-time{font-size:52px; font-weight:800; font-variant-numeric:tabular-nums;}
+  #guardOverlay .g-scores{display:flex; gap:22px; font-size:21px; font-weight:700; margin:12px 0 30px;}
   #guardOverlay .g-hint{font-size:14px; opacity:.75; margin-bottom:14px;}
   .unlock-ring{
-    position:relative; width:120px; height:120px; border-radius:50%;
+    position:relative; width:112px; height:112px; border-radius:50%;
     border:4px solid rgba(255,255,255,.25); display:flex; align-items:center; justify-content:center;
     font-size:14px; font-weight:700; user-select:none;
   }
@@ -173,27 +190,19 @@
     <h2>Team A</h2>
     <input id="nameA" class="team-name-input" type="text" placeholder="Team A" maxlength="24">
     <div class="swatches" id="swatchesA"></div>
-    <div class="custom-color-row">
-      <label for="customA">Custom:</label>
-      <input id="customA" type="color" value="#c0272d">
-    </div>
   </div>
 
   <div class="card">
     <h2>Team B</h2>
     <input id="nameB" class="team-name-input" type="text" placeholder="Team B" maxlength="24">
     <div class="swatches" id="swatchesB"></div>
-    <div class="custom-color-row">
-      <label for="customB">Custom:</label>
-      <input id="customB" type="color" value="#1f6feb">
-    </div>
   </div>
 
-  <div class="card">
-    <h2>Half length</h2>
-    <div class="field-row">
+  <div class="halflen-row">
+    <label for="halfMinutes">Half length</label>
+    <div class="halflen-input">
       <input id="halfMinutes" type="number" min="1" max="60" value="15">
-      <span>minutes per half</span>
+      <span>min</span>
     </div>
   </div>
 
@@ -251,7 +260,7 @@
 
   <div class="log-card">
     <div class="log-head" id="logHead">
-      <span>Goal log <span class="count" id="logCount">(0)</span></span>
+      <span>Match log <span class="count" id="logCount">(0)</span></span>
       <span id="logToggleIcon">▾</span>
     </div>
     <div class="log-list" id="logList"></div>
@@ -264,7 +273,7 @@
 <div class="overlay" id="alertOverlay">
   <div class="big" id="alertBig"></div>
   <div class="sub" id="alertSub"></div>
-  <div class="tap">tap anywhere to dismiss</div>
+  <div class="tap" id="alertTap">tap anywhere to dismiss</div>
 </div>
 
 <!-- guard overlay -->
@@ -285,7 +294,7 @@
 (function(){
   "use strict";
 
-  var STORE_KEY = "refTimerApp.v1";
+  var STORE_KEY = "refTimerApp.v2";
   var SWATCH_COLORS = ["#c0272d","#1f6feb","#1a7f37","#f2a900","#8b2fc9","#0b7285",
                         "#111827","#ffffff","#e85d9e","#0ea5e9","#0c2d6b","#d97706"];
 
@@ -302,7 +311,7 @@
       remainingAtStop: 15*60*1000,
       running: false,
       runningSinceTs: null,
-      log: [],           // {team:'A'|'B', ts:Number, clockMs:Number}
+      events: [],        // {type, team?, dir?, half, clockMs, ts}
       mercyLeader: null, // null | 'A' | 'B'
       inMatch: false
     };
@@ -320,6 +329,7 @@
   }
 
   state = loadState() || defaultState();
+  if(!state.events){ state.events = []; }
 
   // ---------------- helpers ----------------
   function clamp(n,min,max){ return Math.max(min, Math.min(max,n)); }
@@ -382,9 +392,11 @@
     } else if(kind === "mercyOff"){
       tone(0,520,0.16); tone(0.2,660,0.28);
     } else if(kind === "halfEnd"){
-      tone(0,440,0.5,0.4);
+      tone(0,440,0.28,0.4); tone(0.34,440,0.28,0.4); tone(0.68,440,0.5,0.45);
     } else if(kind === "goal"){
       tone(0,700,0.12,0.25);
+    } else if(kind === "goalRemove"){
+      tone(0,420,0.14,0.22);
     }
   }
 
@@ -416,8 +428,9 @@
     }
   }
   document.addEventListener("visibilitychange", function(){
-    if(document.visibilityState === "visible" && state.running && !wakeLockObj){
-      requestWakeLock();
+    if(document.visibilityState === "visible"){
+      if(state.running && !wakeLockObj){ requestWakeLock(); }
+      tick(); // catch up immediately in case time expired while backgrounded/locked
     }
   });
 
@@ -431,35 +444,53 @@
 
   // ---------------- rendering ----------------
   var els = {};
-  ["setupScreen","matchScreen","nameA","nameB","swatchesA","swatchesB","customA","customB",
+  ["setupScreen","matchScreen","nameA","nameB","swatchesA","swatchesB",
    "halfMinutes","startMatchBtn","cancelEditBtn","halfLabel","editTeamsBtn","newMatchBtn",
    "timerDisplay","startPauseBtn","resetBtn","nextHalfBtn","panelA","panelB","panelNameA",
    "panelNameB","scoreA","scoreB","logHead","logList","logCount","logToggleIcon",
-   "lockFab","alertOverlay","alertBig","alertSub","guardOverlay","guardTime","guardNameA",
+   "lockFab","alertOverlay","alertBig","alertSub","alertTap","guardOverlay","guardTime","guardNameA",
    "guardNameB","guardScoreA","guardScoreB","unlockRing","unlockFill","mercyPill","mercyText",
    "mercyDismiss","wakeNote"
   ].forEach(function(id){ els[id] = document.getElementById(id); });
 
   function buildSwatches(container, teamKey){
     container.innerHTML = "";
+    var current = state[teamKey].color;
+    var isPreset = false;
     SWATCH_COLORS.forEach(function(c){
       var b = document.createElement("button");
       b.className = "swatch";
       b.style.background = c;
-      if(c.toLowerCase() === state[teamKey].color.toLowerCase()){ b.classList.add("selected"); }
+      if(c.toLowerCase() === current.toLowerCase()){ b.classList.add("selected"); isPreset = true; }
       b.addEventListener("click", function(){
         state[teamKey].color = c;
         buildSwatches(container, teamKey);
       });
       container.appendChild(b);
     });
+
+    var custom = document.createElement("label");
+    custom.className = "swatch swatch-custom" + (!isPreset ? " selected" : "");
+    if(!isPreset){ custom.style.background = current; }
+    custom.title = "Custom colour";
+    var brush = document.createElement("span");
+    brush.className = "brush";
+    brush.textContent = "🎨";
+    custom.appendChild(brush);
+    var inp = document.createElement("input");
+    inp.type = "color";
+    inp.value = current;
+    inp.addEventListener("input", function(){
+      state[teamKey].color = inp.value;
+      buildSwatches(container, teamKey);
+    });
+    custom.appendChild(inp);
+    container.appendChild(custom);
   }
 
   function renderSetupFromState(){
     els.nameA.value = state.teamA.name;
     els.nameB.value = state.teamB.name;
-    els.customA.value = state.teamA.color;
-    els.customB.value = state.teamB.color;
     els.halfMinutes.value = state.halfMinutes;
     buildSwatches(els.swatchesA, "teamA");
     buildSwatches(els.swatchesB, "teamB");
@@ -500,37 +531,58 @@
 
   function countGoals(team){
     var n = 0;
-    for(var i=0;i<state.log.length;i++){ if(state.log[i].team === team) n++; }
-    return n;
+    for(var i=0;i<state.events.length;i++){
+      var e = state.events[i];
+      if(e.type === "goal" && e.team === team){ n += e.dir; }
+    }
+    return Math.max(0, n);
+  }
+
+  function eventLabel(e){
+    var teamName = e.team === "A" ? state.teamA.name : (e.team === "B" ? state.teamB.name : null);
+    switch(e.type){
+      case "goal": return (e.dir > 0 ? "Goal — " : "Goal removed — ") + teamName;
+      case "half_start": return "Half " + e.half + " kicked off";
+      case "resume": return "Play resumed";
+      case "pause": return "Play paused";
+      case "half_end": return "Half " + e.half + " time up";
+      case "next_half": return "Half " + e.half + " ended → Half " + e.toHalf + " kicked off";
+      case "reset": return "Timer reset";
+      case "mercy_on": return "Mercy rule — " + teamName + " +4";
+      case "mercy_off": return "Mercy rule cleared";
+      default: return e.type;
+    }
+  }
+
+  function logEvent(type, extra){
+    var e = {type:type, ts:Date.now(), half:state.half, clockMs: remainingMs()};
+    if(extra){ for(var k in extra){ e[k] = extra[k]; } }
+    state.events.push(e);
   }
 
   function renderLog(){
-    els.logCount.textContent = "(" + state.log.length + ")";
+    els.logCount.textContent = "(" + state.events.length + ")";
     els.logList.classList.toggle("open", logOpen);
     els.logToggleIcon.textContent = logOpen ? "▴" : "▾";
     els.logList.innerHTML = "";
-    if(state.log.length === 0){
+    if(state.events.length === 0){
       var empty = document.createElement("div");
       empty.className = "log-empty";
-      empty.textContent = "No goals yet";
+      empty.textContent = "No events yet";
       els.logList.appendChild(empty);
       return;
     }
-    for(var i = state.log.length - 1; i >= 0; i--){
-      (function(idx){
-        var entry = state.log[idx];
-        var row = document.createElement("div");
-        row.className = "log-row";
-        var teamName = entry.team === "A" ? state.teamA.name : state.teamB.name;
-        var label = document.createElement("span");
-        label.textContent = formatMs(entry.clockMs) + " remaining — " + teamName;
-        var rm = document.createElement("button");
-        rm.className = "rm";
-        rm.textContent = "✕";
-        rm.addEventListener("click", function(){ removeLogEntry(idx); });
-        row.appendChild(label); row.appendChild(rm);
-        els.logList.appendChild(row);
-      })(i);
+    for(var i = state.events.length - 1; i >= 0; i--){
+      var e = state.events[i];
+      var row = document.createElement("div");
+      row.className = "log-row";
+      var label = document.createElement("span");
+      label.textContent = eventLabel(e);
+      var time = document.createElement("span");
+      time.className = "log-time";
+      time.textContent = "H" + e.half + " " + formatMs(e.clockMs);
+      row.appendChild(label); row.appendChild(time);
+      els.logList.appendChild(row);
     }
   }
 
@@ -559,23 +611,19 @@
 
   function addGoal(team){
     ensureAudio();
-    state.log.push({team:team, ts:Date.now(), clockMs: remainingMs()});
+    logEvent("goal", {team:team, dir:1});
     playPattern("goal");
     vibrate(30);
     checkMercy();
     saveState(); renderMatch();
   }
 
-  function removeLastGoal(team){
-    for(var i = state.log.length - 1; i >= 0; i--){
-      if(state.log[i].team === team){ state.log.splice(i,1); break; }
-    }
-    checkMercy();
-    saveState(); renderMatch();
-  }
-
-  function removeLogEntry(idx){
-    state.log.splice(idx,1);
+  function removeGoal(team){
+    if(countGoals(team) <= 0){ return; } // nothing to remove — avoid a hidden negative ledger
+    ensureAudio();
+    logEvent("goal", {team:team, dir:-1});
+    playPattern("goalRemove");
+    vibrate(20);
     checkMercy();
     saveState(); renderMatch();
   }
@@ -584,7 +632,7 @@
     btn.addEventListener("click", function(){
       var team = btn.getAttribute("data-team");
       var dir = btn.getAttribute("data-dir");
-      if(dir === "1"){ addGoal(team); } else { removeLastGoal(team); }
+      if(dir === "1"){ addGoal(team); } else { removeGoal(team); }
     });
   });
 
@@ -598,17 +646,19 @@
 
     if(newLeader !== state.mercyLeader){
       if(newLeader){
+        logEvent("mercy_on", {team:newLeader});
         fireAlert(
           (newLeader === "A" ? state.teamA.name : state.teamB.name) + " leads by " + Math.abs(diff),
           (newLeader === "A" ? state.teamB.name : state.teamA.name) + " may add an extra player",
           newLeader === "A" ? state.teamA.color : state.teamB.color,
-          "mercyOn", [200,80,200,80,200]
+          "mercyOn", [200,80,200,80,200], false
         );
       } else {
+        logEvent("mercy_off");
         fireAlert(
           "Margin back under 4",
           "Extra player should come off",
-          "#374151", "mercyOff", [150,80,150]
+          "#374151", "mercyOff", [150,80,150], false
         );
       }
       state.mercyLeader = newLeader;
@@ -617,20 +667,36 @@
 
   // ---------------- alert overlay ----------------
   var alertHideTimer = null;
-  function fireAlert(big, sub, color, sound, vibPattern){
+  var criticalRepeatHandle = null;
+
+  function fireAlert(big, sub, color, sound, vibPattern, critical){
+    ensureAudio();
     els.alertOverlay.style.background = color;
     els.alertOverlay.style.color = contrastText(color);
     els.alertBig.textContent = big;
     els.alertSub.textContent = sub;
+    els.alertOverlay.classList.toggle("critical", !!critical);
+    els.alertTap.textContent = critical ? "tap anywhere to stop the alert" : "tap anywhere to dismiss";
     els.alertOverlay.classList.add("show");
     playPattern(sound);
     vibrate(vibPattern);
-    if(alertHideTimer) clearTimeout(alertHideTimer);
-    alertHideTimer = setTimeout(dismissAlert, 4500);
+    if(alertHideTimer){ clearTimeout(alertHideTimer); alertHideTimer = null; }
+    if(criticalRepeatHandle){ clearInterval(criticalRepeatHandle); criticalRepeatHandle = null; }
+    if(critical){
+      criticalRepeatHandle = setInterval(function(){
+        ensureAudio();
+        playPattern(sound);
+        vibrate(vibPattern);
+      }, 1800);
+    } else {
+      alertHideTimer = setTimeout(dismissAlert, 4500);
+    }
   }
   function dismissAlert(){
     els.alertOverlay.classList.remove("show");
+    els.alertOverlay.classList.remove("critical");
     if(alertHideTimer){ clearTimeout(alertHideTimer); alertHideTimer = null; }
+    if(criticalRepeatHandle){ clearInterval(criticalRepeatHandle); criticalRepeatHandle = null; }
   }
   els.alertOverlay.addEventListener("click", dismissAlert);
 
@@ -641,10 +707,12 @@
   function startTimer(){
     ensureAudio();
     if(state.running) return;
+    var freshStart = (state.remainingAtStop >= state.totalMs);
     state.running = true;
     state.runningSinceTs = Date.now();
     halfEndFired = (remainingMs() <= 0);
     requestWakeLock();
+    logEvent(freshStart ? "half_start" : "resume");
     saveState(); renderMatch();
   }
   function pauseTimer(){
@@ -653,6 +721,7 @@
     state.running = false;
     state.runningSinceTs = null;
     releaseWakeLock();
+    logEvent("pause");
     saveState(); renderMatch();
   }
   function resetTimer(){
@@ -663,11 +732,14 @@
     state.runningSinceTs = null;
     halfEndFired = false;
     releaseWakeLock();
+    logEvent("reset");
     saveState(); renderMatch();
   }
   function nextHalf(){
     if(!window.confirm("End this half and reset the clock for Half " + (state.half===1?2:1) + "?")) return;
-    state.half = state.half === 1 ? 2 : 1;
+    var toHalf = state.half === 1 ? 2 : 1;
+    logEvent("next_half", {toHalf: toHalf});
+    state.half = toHalf;
     state.totalMs = state.halfMinutes*60*1000;
     state.remainingAtStop = state.totalMs;
     state.running = false;
@@ -686,7 +758,8 @@
         state.running = false;
         state.runningSinceTs = null;
         releaseWakeLock();
-        fireAlert("Half " + state.half + " ended", "Time's up", "#111827", "halfEnd", [300]);
+        logEvent("half_end");
+        fireAlert("Half " + state.half + " time up", "Blow the whistle", "#111827", "halfEnd", [400,150,400,150,400], true);
         saveState();
       }
     }
@@ -741,15 +814,6 @@
   // ---------------- setup screen wiring ----------------
   var editingExisting = false;
 
-  els.customA.addEventListener("input", function(){
-    state.teamA.color = els.customA.value;
-    buildSwatches(els.swatchesA, "teamA");
-  });
-  els.customB.addEventListener("input", function(){
-    state.teamB.color = els.customB.value;
-    buildSwatches(els.swatchesB, "teamB");
-  });
-
   els.startMatchBtn.addEventListener("click", function(){
     ensureAudio();
     state.teamA.name = els.nameA.value.trim() || "Team A";
@@ -764,7 +828,7 @@
       state.remainingAtStop = mins*60*1000;
       state.running = false;
       state.runningSinceTs = null;
-      state.log = [];
+      state.events = [];
       state.mercyLeader = null;
       halfEndFired = false;
     } else {
@@ -813,7 +877,6 @@
     } else {
       showScreen("setup");
     }
-    if(!wakeLockSupported){ /* note shown lazily when match starts running */ }
   }
   boot();
 
